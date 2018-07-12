@@ -1,0 +1,2 @@
+class AnagramsController < ApplicationController
+end
