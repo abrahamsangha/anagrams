@@ -1,12 +1,11 @@
 class WordsController < ApplicationController
   def create
-    words_params[:words].each { |word| Word.create(word) }
+    words = words_params.to_h["words"]
+    WordCreator.execute(words: words)
     render status: :created
   end
 
   def words_params
-    params.require(:word).permit(words: [])
+    params.permit([{words: []} , :format])
   end
-
-
 end
