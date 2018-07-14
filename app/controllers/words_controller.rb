@@ -10,6 +10,11 @@ class WordsController < ApplicationController
   end
 
   def destroy
-    Word.delete_all
+    word = params[:id]
+    Word.where(value: word).destroy_all
+  end
+
+  def destroy_all
+    Word.destroy_all
   end
 end
