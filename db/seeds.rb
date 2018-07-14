@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+File.open("app/lib/data/dictionary.txt", "r").each_line do |line|
+  p "word: #{line.chomp}"
+  WordCreator.execute(words: line.chomp)
+end

@@ -5,10 +5,6 @@ class WordsController < ApplicationController
     render status: :created
   end
 
-  def words_params
-    params.permit([{words: []} , :format])
-  end
-
   def destroy
     word = params[:id]
     Word.where(value: word).destroy_all
@@ -17,4 +13,11 @@ class WordsController < ApplicationController
   def destroy_all
     Word.destroy_all
   end
+
+  private
+
+  def words_params
+    params.permit([{words: []} , :format])
+  end
+
 end
