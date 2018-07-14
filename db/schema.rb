@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_12_215852) do
+ActiveRecord::Schema.define(version: 2018_07_14_153329) do
 
   create_table "words", force: :cascade do |t|
     t.string "value"
     t.string "standardized"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["standardized"], name: "index_words_on_standardized"
     t.index ["value"], name: "index_words_on_value", unique: true
-    t.index [nil], name: "index_words_on_char_sorted"
   end
 
 end
