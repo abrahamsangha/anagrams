@@ -8,4 +8,8 @@ class WordsController < ApplicationController
   def words_params
     params.permit([{words: []} , :format])
   end
+
+  def destroy
+    Word.delete_all
+  end
 end
